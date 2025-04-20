@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+    <title>Contact - Sumair Irshad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styling - Matching Previous Pages */
+        :root {
+            --primary-color: #4cc9f0;
+            --secondary-color: #4cc9f0;
+            --accent-color: #4cc9f0;
+            --text-light: #ffffff;
+            --text-dark: #121212;
+            --bg-overlay: rgba(0, 0, 0, 0.6);
+            --nav-bg: rgba(0, 0, 0, 0.8);
+            --card-bg: rgba(30, 30, 30, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover fixed;
+            color: var(--text-light);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-overlay);
+            z-index: -1;
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* Header - Matching Previous Pages */
+        header {
+            background: var(--nav-bg);
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        header .logo {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            font-weight: 700;
+            margin-left: 1.5rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        header .logo:hover {
+            color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            margin-right: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 0.8rem;
+            font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            white-space: nowrap;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            margin-right: 1.5rem;
+            z-index: 1001;
+        }
+
+        .menu-toggle i {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            transition: transform 0.3s ease;
+        }
+
+        /* Contact Section */
+        .contact {
+            margin-top: 6rem;
+            padding: clamp(2rem, 5vw, 4rem) 0;
+        }
+
+        .contact h1 {
+            text-align: center;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            color: var(--primary-color);
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            animation: fadeInDown 1s ease-out;
+            text-shadow: 0 2px 10px rgba(76, 201, 240, 0.3);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(76, 201, 240, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .contact-info.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .contact-info:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(76, 201, 240, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .contact-info h2 {
+            font-size: clamp(1.3rem, 1.8vw, 1.8rem);
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+
+        .contact-details {
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-right: 1rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary-color);
+        }
+
+        .contact-text p, 
+        .contact-text a {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .business-hours {
+            margin-top: 2rem;
+        }
+
+        .business-hours h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .hours-day {
+            font-weight: 500;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(76, 201, 240, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        .contact-form.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .contact-form:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(76, 201, 240, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .contact-form h2 {
+            font-size: clamp(1.3rem, 1.8vw, 1.8rem);
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .contact-form h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--primary-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(76, 201, 240, 0.3);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(76, 201, 240, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: var(--text-dark);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(76, 201, 240, 0.4);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .submit-btn:hover::before {
+            opacity: 1;
+        }
+
+        /* Footer - Matching Previous Pages */
+        footer {
+            margin-top: clamp(3rem, 6vw, 5rem);
+            padding: 1.5rem 0;
+            background: var(--nav-bg);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: clamp(0.8rem, 1vw, 0.9rem);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Animations - Consistent with Previous Pages */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design - Tablet */
+        @media (max-width: 1024px) {
+            nav a {
+                margin: 0 0.6rem;
+            }
+        }
+
+        /* Responsive Design - Small Tablet */
+        @media (max-width: 768px) {
+            header {
+                padding: 0.8rem 0;
+            }
+            
+            .contact {
+                margin-top: 5rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Responsive Design - Mobile */
+        @media (max-width: 600px) {
+            header {
+                padding: 0.7rem 0;
+            }
+            
+            header .logo {
+                margin-left: 1rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--nav-bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                clip-path: circle(0px at 90% -10%);
+                -webkit-clip-path: circle(0px at 90% -10%);
+                transition: all 0.8s ease-out;
+                pointer-events: none;
+                backdrop-filter: blur(15px);
+            }
+            
+            nav.open {
+                clip-path: circle(1500px at 90% -10%);
+                -webkit-clip-path: circle(1500px at 90% -10%);
+                pointer-events: all;
+            }
+            
+            nav a {
+                margin: 1rem 0;
+                font-size: 1.2rem;
+                padding: 0.8rem 0;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.3s ease;
+            }
+            
+            nav.open a {
+                opacity: 1;
+                transform: translateY(0);
+                transition: all 0.4s ease 0.2s;
+            }
+            
+            .contact {
+                margin-top: 4rem;
+            }
+            
+            .contact-info, 
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Responsive Design - Small Mobile */
+        @media (max-width: 400px) {
+            header .logo {
+                font-size: 1.4rem;
+                margin-left: 0.8rem;
+            }
+            
+            .menu-toggle {
+                margin-right: 0.8rem;
+            }
+            
+            .menu-toggle i {
+                font-size: 1.6rem;
+            }
+            
+            .contact {
+                margin-top: 3.5rem;
+                padding: 1.5rem 0;
+            }
+        }
+
+        /* Large Screens (4K and above) */
+        @media (min-width: 2000px) {
+            .container {
+                max-width: 1800px;
+            }
+            
+            .contact {
+                padding: 5rem 0;
+            }
+            
+            .contact h1 {
+                font-size: 3.5rem;
+                margin-bottom: 4rem;
+            }
+            
+            .contact-info h2,
+            .contact-form h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-text h3 {
+                font-size: 1.3rem;
+            }
+            
+            .contact-text p,
+            .contact-text a,
+            .form-group label {
+                font-size: 1.1rem;
+            }
+            
+            .submit-btn {
+                padding: 1rem 2.5rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header - Matching Previous Pages -->
+        <header id="header">
+            <a href="index.html" class="logo">Sumair</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="nav">
+                <a href="index.html">Home</a>
+                <a href="mission.html">Mission</a>
+                <a href="services.html">Services</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="education.html">Education</a>
+                <a href="experience.html">Experience</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h1>Get In Touch</h1>
+            
+            <div class="contact-container">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Full Name</h3>
+                                <p>Sumair Irshad</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Professional Title</h3>
+                                <p>Head of AI and Data Science at Pentavision Technologies</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <a href="mailto:sumairirshad52@gmail.com">sumairirshad52@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Phone</h3>
+                                <a href="tel:+923554467620">+92 355 4467620</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Address</h3>
+                                <p>Jutail, Gilgit</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>LinkedIn</h3>
+                                <a href="https://www.linkedin.com/in/sumair-irshad" target="_blank">linkedin.com/in/sumair-irshad</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>GitHub</h3>
+                                <a href="https://github.com/sumair218/Sumair218" target="_blank">github.com/sumair218</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-hours">
+                        <h3>Business Hours</h3>
+                        <div class="hours-item">
+                            <span class="hours-day">Monday - Friday</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="hours-day">Saturday</span>
+                            <span>10:00 AM - 2:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="hours-day">Sunday</span>
+                            <span>Closed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Send Me a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer - Matching Previous Pages -->
+        <footer>
+            <p>© 2025 Sumair Irshad | All Rights Reserved</p>
+        </footer>
+    </div>
+
+    <script>
+        // Header Scroll Effect - Matching Previous Pages
+        window.addEventListener("scroll", function() {
+            const header = document.getElementById("header");
+            if (window.scrollY > 30) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById("mobile-menu");
+        const nav = document.getElementById("nav");
+
+        mobileMenu.addEventListener("click", function() {
+            nav.classList.toggle("open");
+            mobileMenu.innerHTML = nav.classList.contains("open") ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = nav.classList.contains("open") ? 'hidden' : 'auto';
+        });
+
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll("nav a");
+        navLinks.forEach(link => {
+            link.addEventListener("click", function() {
+                if (window.innerWidth <= 600) {
+                    nav.classList.remove("open");
+                    mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Animate contact sections on scroll
+        function animateContact() {
+            const contactInfo = document.querySelector('.contact-info');
+            const contactForm = document.querySelector('.contact-form');
+            
+            const infoPosition = contactInfo.getBoundingClientRect().top;
+            const formPosition = contactForm.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (infoPosition < screenPosition) {
+                contactInfo.classList.add('visible');
+            }
+            
+            if (formPosition < screenPosition) {
+                contactForm.classList.add('visible');
+            }
+        }
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For demonstration, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon at ${email}.`);
+            
+            // Reset the form
+            contactForm.reset();
+        });
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateContact();
+            
+            // Highlight active nav link
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('nav a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animate on scroll
+        window.addEventListener('scroll', animateContact);
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            // Close menu if screen size increases
+            if (window.innerWidth > 600) {
+                nav.classList.remove("open");
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

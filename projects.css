@@ -1,0 +1,69 @@
+/* Project Video Styles */
+.project-media {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.project-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.project-media.show-video .project-image img {
+    opacity: 0;
+}
+
+.project-media.show-video .project-video {
+    opacity: 1;
+}
+
+.video-toggle-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(76, 201, 240, 0.8);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.video-toggle-btn:hover {
+    background: rgba(76, 201, 240, 1);
+}
+
+.project-media.show-video .video-toggle-btn {
+    background: rgba(255, 0, 0, 0.8);
+}
+
+.project-media.show-video .video-toggle-btn:hover {
+    background: rgba(255, 0, 0, 1);
+}
+
+/* Rest of your existing project card styles */

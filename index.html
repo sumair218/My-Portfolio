@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumair Irshad - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <a href="#" class="logo">Sumair</a>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav id="nav">
+            <div class="mobile-close-btn"><i class="fas fa-times"></i></div>
+            <a href="index.html" class="active">Home</a>
+            <a href="mission.html">Mission</a>
+            <a href="\project\index.html">Projects</a>
+            <a href="services.html">Services</a>
+            <a href="skills.html">Skills</a>
+            <a href="education.html">Education</a>
+            <a href="experience.html">Experience</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <img src="images (2).jpg" alt="Sumair Irshad" class="profile-image">
+            <h1>Hi, It's <span>Sumair Irshad</span></h1>
+            <h3 class="animated-text">I'm a <span></span></h3>
+            <p>
+                Passionate about AI-driven solutions, I specialize in machine learning, computer vision, and data science.
+                Currently pursuing a BS in Geoinformatics and Remote Sensing at NUST, I have hands-on experience in deep learning,
+                OCR, object detection, and predictive modeling.
+            </p>
+
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/sumair-irshad" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/sumair218/Sumair218" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/irshadsumair/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <button class="btn" id="hireBtn">Hire Me</button>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>Contact Information</h2>
+            <div class="contact-options">
+                <div class="contact-option">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:sumairirshad52@gmail.com">sumairirshad52@gmail.com</a>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('sumairirshad52@gmail.com')">Copy</button>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <a href="tel:+923554467620">+92 355 4467620</a>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('+923554467620')">Copy</button>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/sumair-irshad" target="_blank">linkedin.com/in/sumair-irshad</a>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://www.linkedin.com/in/sumair-irshad')">Copy</button>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-icon">
+                        <i class="fab fa-fiverr"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Fiverr</h3>
+                        <a href="https://www.fiverr.com/users/sumairirshad814/" target="_blank">fiverr.com/sumairirshad814</a>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://www.fiverr.com/users/sumairirshad814/')">Copy</button>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Freelancer</h3>
+                        <a href="https://www.freelancer.com/u/sumair15" target="_blank">freelancer.com/u/sumair15</a>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://www.freelancer.com/u/sumair15')">Copy</button>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Upwork</h3>
+                        <a href="https://www.upwork.com/freelancers/~013aae96525153ba4f" target="_blank">upwork.com/freelancers/~013aae96525153ba4f</a>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('https://www.upwork.com/freelancers/~013aae96525153ba4f')">Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2025 Sumair Irshad | All Rights Reserved</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
