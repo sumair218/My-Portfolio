@@ -52,7 +52,7 @@ Edit
 
 | Desktop View | Mobile View |
 |--------------|-------------|
-| ![Desktop](./screenshots/desktop.png) | ![Mobile](./screenshots/mobile.png) |
+| ![Desktop](./Preview.png) | ![Mobile](./screenshots/mobile.png) |
 
 ---
 
