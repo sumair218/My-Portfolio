@@ -6,7 +6,7 @@
 
 ## 📸 Preview
 
-![Portfolio Preview](./preview.png)  
+![Portfolio Preview](./Preview.png)  
 *A glimpse of the homepage*
 
 ---
